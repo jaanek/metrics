@@ -153,6 +153,10 @@ public class GangliaReporter extends ScheduledReporter {
         this.dMax = dMax;
     }
 
+    public String getPrefix() {
+        return prefix;
+    }
+
     @Override
     public void report(SortedMap<String, Gauge> gauges,
                        SortedMap<String, Counter> counters,

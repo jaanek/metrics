@@ -75,6 +75,20 @@
     </issueManagement>
 
     <distributionManagement>
+      <repository>
+        <id>jawilla.nexus.releases</id>
+        <name>Jawilla Releases Repository</name>
+        <url>http://nexus.jawilla.com/content/repositories/releases/</url>
+      </repository>
+      <snapshotRepository>
+          <id>jawilla.nexus.snapshots</id>
+          <name>Jawilla Snapshots Repository</name>
+          <url>http://nexus.jawilla.com/content/repositories/snapshots/</url>
+      </snapshotRepository>
+    </distributionManagement>
+
+    <!--
+    <distributionManagement>
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
             <name>Sonatype Nexus Snapshots</name>
@@ -86,6 +100,7 @@
             <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+    -->
 
     <dependencies>
         <dependency>

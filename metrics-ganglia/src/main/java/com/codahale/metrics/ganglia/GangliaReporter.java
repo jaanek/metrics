@@ -36,15 +36,15 @@ public class GangliaReporter extends ScheduledReporter {
      * milliseconds, and not filtering metrics.
      */
     public static class Builder {
-        private final MetricRegistry registry;
-        private String prefix;
-        private int tMax;
-        private int dMax;
-        private TimeUnit rateUnit;
-        private TimeUnit durationUnit;
-        private MetricFilter filter;
+        protected final MetricRegistry registry;
+        protected String prefix;
+        protected int tMax;
+        protected int dMax;
+        protected TimeUnit rateUnit;
+        protected TimeUnit durationUnit;
+        protected MetricFilter filter;
 
-        private Builder(MetricRegistry registry) {
+        protected Builder(MetricRegistry registry) {
             this.registry = registry;
             this.tMax = 60;
             this.dMax = 0;
@@ -138,7 +138,7 @@ public class GangliaReporter extends ScheduledReporter {
     private final int tMax;
     private final int dMax;
 
-    private GangliaReporter(MetricRegistry registry,
+    protected GangliaReporter(MetricRegistry registry,
                             GMetric ganglia,
                             String prefix,
                             int tMax,

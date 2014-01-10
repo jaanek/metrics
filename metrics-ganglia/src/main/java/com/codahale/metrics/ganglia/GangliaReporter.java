@@ -184,7 +184,7 @@ public class GangliaReporter extends ScheduledReporter {
         }
     }
 
-    private void reportTimer(String name, Timer timer) {
+    public void reportTimer(String name, Timer timer) {
         final String group = group(name);
         try {
             final Snapshot snapshot = timer.getSnapshot();
@@ -222,7 +222,7 @@ public class GangliaReporter extends ScheduledReporter {
         }
     }
 
-    private void reportMeter(String name, Meter meter) {
+    public void reportMeter(String name, Meter meter) {
         final String group = group(name);
         try {
             reportMetered(name, meter, group, "events");
@@ -240,7 +240,7 @@ public class GangliaReporter extends ScheduledReporter {
         announce(prefix(name, "mean_rate"), group, convertRate(meter.getMeanRate()), unit);
     }
 
-    private void reportHistogram(String name, Histogram histogram) {
+    public void reportHistogram(String name, Histogram histogram) {
         final String group = group(name);
         try {
             final Snapshot snapshot = histogram.getSnapshot();
@@ -261,7 +261,7 @@ public class GangliaReporter extends ScheduledReporter {
         }
     }
 
-    private void reportCounter(String name, Counter counter) {
+    public void reportCounter(String name, Counter counter) {
         final String group = group(name);
         try {
             announce(prefix(name, "count"), group, counter.getCount(), "");
@@ -270,7 +270,7 @@ public class GangliaReporter extends ScheduledReporter {
         }
     }
 
-    private void reportGauge(String name, Gauge gauge) {
+    public void reportGauge(String name, Gauge gauge) {
         final String group = group(name);
         final Object obj = gauge.getValue();
         try {
@@ -281,7 +281,7 @@ public class GangliaReporter extends ScheduledReporter {
         }
     }
 
-    private void announce(String name, String group, double value, String units) throws GangliaException {
+    public void announce(String name, String group, double value, String units) throws GangliaException {
         ganglia.announce(name,
                          Double.toString(value),
                          GMetricType.DOUBLE,
@@ -292,7 +292,7 @@ public class GangliaReporter extends ScheduledReporter {
                          group);
     }
 
-    private void announce(String name, String group, long value, String units) throws GangliaException {
+    public void announce(String name, String group, long value, String units) throws GangliaException {
         final String v = Long.toString(value);
         ganglia.announce(name,
                          v,

@@ -321,7 +321,7 @@ public class GangliaReporter extends ScheduledReporter {
         return GMetricType.STRING;
     }
 
-    public String group(String name) {
+    private String group(String name) {
         final int i = name.lastIndexOf('.');
         if (i < 0) {
             return "";
